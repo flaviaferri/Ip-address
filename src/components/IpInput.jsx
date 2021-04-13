@@ -8,13 +8,16 @@ import { FaChevronRight } from "react-icons/fa";
 const BackgroundHeader = styled.section(
   () => css`
     background-image: url(${background});
-    background-size: contain;
+    background-size: cover;
     min-height: 24rem;
     display: flex;
-    justify-content: center;
+    padding-top: 5rem;
     flex-direction: column;
     align-items: center;
     color: ${theme.colors.white};
+
+     ${theme.breakpoints[2]} {
+      min-height: 35rem;
   `
 );
 
