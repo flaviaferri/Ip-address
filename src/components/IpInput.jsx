@@ -8,8 +8,8 @@ import { FaChevronRight } from "react-icons/fa";
 const BackgroundHeader = styled.section(
   () => css`
     background-image: url(${background});
-    background-size: cover;
-    min-height: 25rem;
+    background-size: contain;
+    min-height: 24rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -94,7 +94,7 @@ export default function Header({ handleClick }) {
       <WrapperSearch>
         <InputSearchIp
           type="text"
-          placeholder="Search any IP address"
+          placeholder="Search any IP address. Ex 127.0.0.0"
           value={ipSearched}
           onChange={(e) => setIpSearched(e.target.value)}
         />

@@ -8,7 +8,6 @@ const Map = styled(MapContainer)(
     height: 41rem;
     width: 100%;
     z-index: 0;
-    margin-top: -6rem;
   `
 );
 

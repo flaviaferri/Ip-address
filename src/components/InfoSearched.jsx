@@ -10,12 +10,11 @@ const Wrapper = styled.div(
     border-radius: 1.5rem;
     display: flex;
     justify-content: space-between;
-    margin: auto;
-    margin-top: -6rem;
+    margin: auto
     box-shadow: -1px 6px 15px 0px rgba(0, 0, 0, 0.46);
     padding: 1rem;
     z-index: 1;
-    position: relative;
+    position: absolute;
 
     ${theme.breakpoints[2]} {
       flex-direction: column;

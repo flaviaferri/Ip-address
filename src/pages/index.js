@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 import dynamic from "next/dynamic";
 import Head from "../components/Head";
 import IpInput from "../components/IpInput";
 import ipApi from "../pages/api/ipApi";
 import InfoSearched from "../components/InfoSearched";
+
+const Wrapper = styled.div(
+  () => css`
+    position: relative;
+  `
+);
 
 export default function Home() {
   const [resultIp, setResultIp] = useState("");
@@ -23,8 +31,11 @@ export default function Home() {
   return (
     <>
       <Head />
-      <IpInput handleClick={setInfoIpSearched} />
-      <InfoSearched resultIp={resultIp} />
+      <Wrapper>
+        <IpInput handleClick={setInfoIpSearched} />
+        <InfoSearched resultIp={resultIp} />
+      </Wrapper>
+
       <MapId location={resultIp.location} />
     </>
   );
