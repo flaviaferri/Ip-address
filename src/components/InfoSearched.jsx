@@ -81,7 +81,7 @@ export default function Info({ resultIp }) {
     <Wrapper>
       <WrapperiInfo>
         <IpInfo>Ip Address</IpInfo>
-        <InfoResult>{resultIp.ip}</InfoResult>
+        <InfoResult>{resultIp?.ip}</InfoResult>
       </WrapperiInfo>
       <WrapperiInfo>
         <IpInfo>Location</IpInfo>
@@ -96,7 +96,7 @@ export default function Info({ resultIp }) {
       </WrapperiInfo>
       <WrapperiInfo>
         <IpInfo>Isp</IpInfo>
-        <InfoResult>{resultIp.isp}</InfoResult>
+        <InfoResult>{resultIp?.isp}</InfoResult>
       </WrapperiInfo>
     </Wrapper>
   );

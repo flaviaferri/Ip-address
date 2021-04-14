@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
@@ -16,8 +16,8 @@ export default function MapIp({ location }) {
     <>
       <Map
         center={[location?.lat || 51.505, location?.lng || -0.09]}
-        zoom={13}
-        scrollWheelZoom={false}
+        zoom={15}
+        scrollWheelZoom={true}
       >
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

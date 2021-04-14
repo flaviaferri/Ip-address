@@ -10,6 +10,9 @@ export default {
       .get(`v1?apiKey=at_EPlYsCZNLISXPqTJDX2t1K97cJGpQ&ipAddress=${ip}`)
       .then((response) => {
         return response.data;
+      })
+      .catch((error) => {
+        throw error;
       });
   },
 };
