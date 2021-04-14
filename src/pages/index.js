@@ -6,6 +6,7 @@ import Head from "../components/Head";
 import IpInput from "../components/IpInput";
 import ipApi from "../pages/api/ipApi";
 import InfoSearched from "../components/InfoSearched";
+const MapId = dynamic(() => import("../components/MapId"), { ssr: false });
 
 const Wrapper = styled.div(
   () => css`
@@ -18,7 +19,6 @@ const MessageError = styled.div(
     display: flex;
     z-index: 1;
     position: absolute;
-    margin-top: 0.5rem;
     min-height: 5.5rem;
     display: flex;
     width: 35rem;
@@ -28,6 +28,7 @@ const MessageError = styled.div(
     border-radius: 5px;
     margin-left: auto;
     margin-right: auto;
+    bottom: -60%;
     left: 0;
     right: 0;
   `
@@ -41,10 +42,10 @@ const MsgError = styled.p(
 
 export default function Home() {
   const [resultIp, setResultIp] = useState("");
-
   const [infoIpSearched, setInfoIpSearched] = useState("");
-
   const [isError, setIsError] = useState(false);
+
+  const { location } = resultIp;
 
   useEffect(async () => {
     try {
@@ -57,17 +58,16 @@ export default function Home() {
   }, [infoIpSearched]);
 
   useEffect(() => {
-    setTimeout(() => {
-      if (isError == true) {
+    const timer = setTimeout(() => {
+      if (isError) {
         setIsError(false);
       }
-    }, 3000);
-  }, [isError]);
+    }, 5000);
 
-  const MapId = dynamic(
-    () => import("../components/MapId"), // replace '@components/map' with your component's location
-    { ssr: false } // This line is important. It's what prevents server-side render
-  );
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [isError]);
 
   return (
     <>
@@ -77,13 +77,13 @@ export default function Home() {
         <InfoSearched resultIp={resultIp} />
 
         {isError && (
-          <MessageError isError={isError}>
+          <MessageError>
             <MsgError>Write a valid IP!</MsgError>
           </MessageError>
         )}
       </Wrapper>
 
-      <MapId location={resultIp?.location} />
+      <MapId lat={location?.lat} lng={location?.lng} />
     </>
   );
 }

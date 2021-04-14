@@ -75,8 +75,6 @@ const InfoResult = styled.p(
 );
 
 export default function Info({ resultIp }) {
-  console.log(resultIp);
-
   return (
     <Wrapper>
       <WrapperiInfo>

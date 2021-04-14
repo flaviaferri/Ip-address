@@ -11,11 +11,11 @@ const Map = styled(MapContainer)(
   `
 );
 
-export default function MapIp({ location }) {
+const MapIp = ({ lat, lng }) => {
   return (
     <>
       <Map
-        center={[location?.lat || 51.505, location?.lng || -0.09]}
+        center={[lat || 51.505, lng || -0.09]}
         zoom={15}
         scrollWheelZoom={true}
       >
@@ -23,10 +23,10 @@ export default function MapIp({ location }) {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker
-          position={[location?.lat || 51.505, location?.lng || -0.09]}
-        ></Marker>
+        <Marker position={[lat || 51.505, lng || -0.09]}></Marker>
       </Map>
     </>
   );
-}
+};
+
+export default memo(MapIp);
