@@ -1,13 +1,16 @@
-import React, { memo } from "react";
+import React from "react";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 const Map = styled(MapContainer)(
   () => css`
-    height: 41rem;
+    height: 100vh;
     width: 100%;
     z-index: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
   `
 );
 
@@ -29,4 +32,4 @@ const MapIp = ({ lat, lng }) => {
   );
 };
 
-export default memo(MapIp);
+export default MapIp;

@@ -6,7 +6,6 @@ import Head from "../components/Head";
 import IpInput from "../components/IpInput";
 import ipApi from "../pages/api/ipApi";
 import InfoSearched from "../components/InfoSearched";
-const MapId = dynamic(() => import("../components/MapId"), { ssr: false });
 
 const Wrapper = styled.div(
   () => css`
@@ -41,6 +40,8 @@ const MsgError = styled.p(
 );
 
 export default function Home() {
+  const MapId = dynamic(() => import("../components/MapId"), { ssr: false });
+
   const [resultIp, setResultIp] = useState("");
   const [infoIpSearched, setInfoIpSearched] = useState("");
   const [isError, setIsError] = useState(false);
@@ -84,6 +85,8 @@ export default function Home() {
       </Wrapper>
 
       <MapId lat={location?.lat} lng={location?.lng} />
+
+      {console.log(location)}
     </>
   );
 }

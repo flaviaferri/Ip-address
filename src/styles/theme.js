@@ -6,5 +6,6 @@ export const theme = {
     darkGray: "hsl(0, 0%, 59%)",
     white: "#fff",
   },
+
   breakpoints: breakpoints.map((bp) => `@media (max-width: ${bp}px)`),
 };

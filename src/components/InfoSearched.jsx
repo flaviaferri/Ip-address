@@ -14,23 +14,14 @@ const Wrapper = styled.div(
     box-shadow: -1px 6px 15px 0px rgba(0, 0, 0, 0.46);
     padding: 1rem;
     z-index: 1;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
+    margin-top: -60px;
     text-align: center;
-    bottom: -25%;
 
     ${theme.breakpoints[2]} {
       flex-direction: column;
       width: 40rem;
       height: auto;
-      bottom: -52%;
-    }
-
-    ${theme.breakpoints[0]} {
-      bottom: -60%;
+      margin-top: -180px;
     }
 
     ${theme.breakpoints[0]} {

@@ -9,7 +9,7 @@ const BackgroundHeader = styled.section(
   () => css`
     background-image: url(${background});
     background-size: cover;
-    min-height: 24rem;
+    min-height: 23rem;
     display: flex;
     padding-top: 5rem;
     flex-direction: column;
