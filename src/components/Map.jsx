@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, ZoomControl } from "react-leaflet";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
-const Map = styled(MapContainer)(
+const MapContainerStyled = styled(MapContainer)(
   ({ theme }) => css`
     height: 80vh;
     width: 100%;
@@ -18,10 +18,10 @@ const Map = styled(MapContainer)(
   `
 );
 
-const MapIp = ({ lat, lng }) => {
+const Map = ({ lat, lng }) => {
   return (
     <>
-      <Map
+      <MapContainerStyled
         center={[lat || 51.505, lng || -0.09]}
         zoom={16}
         scrollWheelZoom={true}
@@ -33,9 +33,9 @@ const MapIp = ({ lat, lng }) => {
         />
         <Marker position={[lat || 51.505, lng || -0.09]}></Marker>
         <ZoomControl position="bottomleft"></ZoomControl>
-      </Map>
+      </MapContainerStyled>
     </>
   );
 };
 
-export default MapIp;
+export default Map;

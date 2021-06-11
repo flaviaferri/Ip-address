@@ -1,10 +1,10 @@
 import Head from "next/head";
 
-function IndexPage() {
+function PageHeading() {
   return (
     <div>
       <Head>
-        <title>Ip Address</title>
+        <title>IP Address Tracker</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
@@ -27,4 +27,4 @@ function IndexPage() {
   );
 }
 
-export default IndexPage;
+export default PageHeading;

@@ -86,7 +86,7 @@ const ButtonSearchIp = styled.button(
   `
 );
 
-export default function Header({ handleClick }) {
+export default function IpInput({ handleClick }) {
   const [ipSearched, setIpSearched] = useState("");
 
   return (

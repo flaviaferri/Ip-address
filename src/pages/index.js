@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import dynamic from "next/dynamic";
-import Head from "../components/Head";
+
+import PageHeading from "../components/PageHeading";
 import IpInput from "../components/IpInput";
+import Info from "../components/Info";
+
 import ipApi from "../pages/api/ipApi";
-import InfoSearched from "../components/InfoSearched";
 
 const Wrapper = styled.div(
   () => css`
@@ -40,7 +42,7 @@ const MsgError = styled.p(
 );
 
 export default function Home() {
-  const MapId = dynamic(() => import("../components/MapId"), { ssr: false });
+  const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
   const [resultIp, setResultIp] = useState("");
   const [infoIpSearched, setInfoIpSearched] = useState("");
@@ -72,10 +74,10 @@ export default function Home() {
 
   return (
     <>
-      <Head />
+      <PageHeading />
       <Wrapper>
         <IpInput handleClick={setInfoIpSearched} />
-        <InfoSearched resultIp={resultIp} />
+        <Info resultIp={resultIp} />
 
         {isError && (
           <MessageError>
@@ -84,9 +86,7 @@ export default function Home() {
         )}
       </Wrapper>
 
-      <MapId lat={location?.lat} lng={location?.lng} />
-
-      {console.log(location)}
+      <Map lat={location?.lat} lng={location?.lng} />
     </>
   );
 }
