@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
@@ -68,25 +68,29 @@ const InfoResult = styled.p(
 export default function Info({ resultIp }) {
   return (
     <Wrapper>
-      <WrapperiInfo>
-        <IpInfo>Ip Address</IpInfo>
-        <InfoResult>{resultIp?.ip}</InfoResult>
-      </WrapperiInfo>
-      <WrapperiInfo>
-        <IpInfo>Location</IpInfo>
-        <InfoResult>
-          {`${resultIp?.location?.city}, ${resultIp?.location?.country} 
+      {resultIp && (
+        <>
+          <WrapperiInfo>
+            <IpInfo>Ip Address</IpInfo>
+            <InfoResult>{resultIp?.ip}</InfoResult>
+          </WrapperiInfo>
+          <WrapperiInfo>
+            <IpInfo>Location</IpInfo>
+            <InfoResult>
+              {`${resultIp?.location?.city}, ${resultIp?.location?.country} 
           ${resultIp?.location?.postalCode}`}
-        </InfoResult>
-      </WrapperiInfo>
-      <WrapperiInfo>
-        <IpInfo>Timezone</IpInfo>
-        <InfoResult>{resultIp?.location?.timezone}</InfoResult>
-      </WrapperiInfo>
-      <WrapperiInfo>
-        <IpInfo>Isp</IpInfo>
-        <InfoResult>{resultIp?.isp}</InfoResult>
-      </WrapperiInfo>
+            </InfoResult>
+          </WrapperiInfo>
+          <WrapperiInfo>
+            <IpInfo>Timezone</IpInfo>
+            <InfoResult>{resultIp?.location?.timezone}</InfoResult>
+          </WrapperiInfo>
+          <WrapperiInfo>
+            <IpInfo>Isp</IpInfo>
+            <InfoResult>{resultIp?.isp}</InfoResult>
+          </WrapperiInfo>
+        </>
+      )}
     </Wrapper>
   );
 }
