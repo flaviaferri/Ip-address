@@ -7,7 +7,7 @@ import PageHeading from "../components/PageHeading";
 import IpInput from "../components/IpInput";
 import Info from "../components/Info";
 
-import ipApi from "../pages/api/ipApi";
+import ipApi from "../services/ipApi";
 
 const Wrapper = styled.div(
   () => css`
